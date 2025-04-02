@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, 2024 BSI Business Systems Integration AG
+ * Copyright (c) 2010, 2025 BSI Business Systems Integration AG
  *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
@@ -1331,20 +1331,8 @@ export class Desktop extends Widget implements DesktopModel, DisplayParent {
    * Only one form can be active at once. The currently active form is reflected by {@link activeForm}.
    */
   activateForm(form: Form) {
-    if (!form) {
-      this._setFormActivated(null);
-      return;
-    }
-    let displayParent = form.displayParent || this;
+    let displayParent = form?.displayParent || this;
     displayParent.formController.activateForm(form);
-    this._setFormActivated(form);
-
-    // If the form has a modal child dialog, this dialog needs to be activated as well.
-    form.dialogs.forEach(dialog => {
-      if (dialog.modal) {
-        this.activateForm(dialog);
-      }
-    });
   }
 
   /** @internal */
