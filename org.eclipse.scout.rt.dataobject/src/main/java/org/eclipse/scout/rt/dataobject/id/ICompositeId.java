@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, 2023 BSI Business Systems Integration AG
+ * Copyright (c) 2010, 2025 BSI Business Systems Integration AG
  *
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
@@ -14,6 +14,9 @@ import java.util.List;
 /**
  * An interface to represent an arbitrary id based on the composition of multiple {@link IId}'s as components. The
  * type(s) of the raw (wrapped) ids is required to be an instance of {@link IId}.
+ * <p>
+ * See {@link ICompositePartId} and subclasses for a set of convenience wrapper types to be used for parts, which are not used aside of the
+ *  composite id in APIs or persisted data objects and therefore do not need a separate class type for their own.
  * <p>
  * Subclasses must provide the following static factory methods:
  * <ul>
